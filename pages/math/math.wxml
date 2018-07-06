@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y class="menu">
+    <view wx:for="{{datas}}" ws:key="{{index}}" data-index="{{index}}" bindtap='chosemenu' class='{{ menuChosed === index ? "chosed" : null }}'>{{item.title}}</view>
+  </scroll-view>
+  <view class="containt-box">
+    <scroll-view scroll-y wx:for="{{datas}}" wx:key="{{index}}" class='{{ menuChosed === index ? "containt chosed" : "containt" }}'>
+      <view class="q-one" wx:for="{{item.qs}}" wx:key="{{index2}}" wx:for-index="index2" wx:for-item="item2">
+        <text class="num">{{index2+1}}.</text> {{item2.q}}:{{item2.a}}
+      </view>
+    </scroll-view>
+  </view>
+</view>
