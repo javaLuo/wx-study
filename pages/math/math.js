@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     menuChosed: 0, // 当前选择的哪个菜单
+    menuHuaTop:0,
     datas: [  // 当前页所有原始数据
       {
         title: '三角函数', qs: [
@@ -151,11 +152,19 @@ Page({
   onLoad: function () {
 
   },
+  onShareAppMessage: function (res) {
+    return {
+      title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习数学，起床，吃饭，学习，睡觉！`,
+      path: '/page/index/index',
+      imageUrl: app.globalData.userInfo.avatarUrl,
+    }
+  },
   chosemenu: function (e) {
     console.log(e);
     if (e.currentTarget.dataset.index !== this.menuChosed) {
       this.setData({
         menuChosed: Number(e.currentTarget.dataset.index),
+        menuHuaTop: e.target.offsetTop
       });
     }
 

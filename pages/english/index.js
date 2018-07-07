@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    menuHuaTop: 0, // 菜单的滑块DOM信息
     menuChosed: 0, // 当前选择的哪个菜单
     datas: [  // 当前页所有原始数据
       {
@@ -30,15 +31,21 @@ Page({
     ]
   },
   onLoad: function () {
-
+    
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习英语`,
+      path: '/page/index/index',
+      imageUrl: app.globalData.userInfo.avatarUrl,
+    }
   },
   chosemenu: function (e) {
-    console.log(e);
     if (e.currentTarget.dataset.index !== this.menuChosed) {
       this.setData({
         menuChosed: Number(e.currentTarget.dataset.index),
+        menuHuaTop: e.target.offsetTop
       });
     }
-
   }
 })

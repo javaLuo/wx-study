@@ -1,1 +1,4 @@
-/* pages/math/math.wxss */
+.page-math .containt-box{
+  background-image: url("https://isluo.com/imgs/wx/back2.jpg");
+  background-size: cover;
+}

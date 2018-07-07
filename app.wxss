@@ -8,25 +8,34 @@
 }
 .container .menu{
   flex: none;
-  min-width: 20%;
+  min-width: 25%;
   height: 100vh;
   width: auto;
   border-right:solid 1px #f0f0f0;
 }
 .container .menu view{
+  position: relative;
   text-align: center;
   font-size: 14px;
   padding: 10px 5px;
   border-bottom: solid 1px #f0f0f0;
   transition: all 300ms;
   box-sizing:border-box;
+  z-index: 2;
+}
+.container .menu .menu-hua{
+  width: 100%;
+  height: 40px;
+  background-color: #55aaee;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:1;
 }
 .container .menu view:active{
-  background-color: #55aaee;
-  color: #fff;
+  background-color: #f0f0f0;
 }
 .container .menu view.chosed{
-  background-color: #55aaee;
   color: #fff;
 }
 .container .containt-box{
@@ -76,4 +85,17 @@
 }
 .container .containt-box>.containt .q-one+.q-one{
   border-top: solid 1px #f0f0f0;
+}
+.no-data{
+  width: 80px;
+  margin: 40px auto 0 auto;
+  position:relative;
+  z-index: 5;
+  font-size:12px;
+  color: #888;
+  text-align: center;
+}
+.no-data image{
+  width: 80px;
+  height: 50px;
 }

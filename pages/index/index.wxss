@@ -1,0 +1,4 @@
+.page-zz .containt-box{
+  background-image: url("https://isluo.com/imgs/wx/back.jpg");
+  background-size: cover;
+}

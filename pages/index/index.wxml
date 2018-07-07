@@ -1,9 +1,14 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container page-zz">
   <scroll-view scroll-y class="menu">
-    <view wx:for="{{datas}}" ws:key="{{index}}" data-index="{{index}}" bindtap='chosemenu' class='{{ menuChosed === index ? "chosed" : null }}'>{{item.title}}</view>
+    <view class="menu-hua" style="top:{{menuHuaTop}}px" wx:if="{{datas.length}}"></view>
+    <view wx:for="{{datas}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chosemenu' class='{{ menuChosed === index ? "chosed" : null }}'>{{item.title}}</view>
   </scroll-view>
   <view class="containt-box">
+    <view class="no-data" wx:if="{{!datas.length}}">
+      <image mode="aspectFit" src="https://isluo.com/work/admin/dist/assets/nothing.png"></image>
+      <view>没有数据</view>
+    </view>
     <scroll-view scroll-y wx:for="{{datas}}" wx:key="{{index}}" class='{{ menuChosed === index ? "containt chosed" : "containt" }}'>
       <view class="q-one" wx:for="{{item.qs}}" wx:key="{{index2}}" wx:for-index="index2" wx:for-item="item2">
         <text class="num">{{index2+1}}.</text> {{item2.q}}:{{item2.a}}

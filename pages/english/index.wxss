@@ -1,1 +1,4 @@
-/* pages/english/index.wxss */
+.page-en .containt-box{
+  background-image: url("https://isluo.com/imgs/wx/back3.jpg");
+  background-size: cover;
+}
