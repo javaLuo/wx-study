@@ -2,3 +2,17 @@
   background-image: url("https://isluo.com/imgs/wx/back2.jpg");
   background-size: cover;
 }
+.page-math .q-one .math-t{
+  color: #000;
+  font-size: 14px;
+}
+.page-math .q-one .math-i{
+  margin-top: 3px;
+  color: #888;
+  font-size: 12px;
+}
+.page-math .q-one .math-img{
+  width: 100%;
+  height: auto;
+  margin-top: 3px;
+}

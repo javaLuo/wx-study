@@ -5,13 +5,13 @@
     <view wx:for="{{datas}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chosemenu' class='{{ menuChosed === index ? "chosed" : null }}'>{{item.title}}</view>
   </scroll-view>
   <view class="containt-box">
-  <view class="no-data" wx:if="{{!datas.length}}">
-      <image mode="aspectFit" src="https://isluo.com/work/admin/dist/assets/nothing.png"></image>
-      <view>没有数据</view>
-    </view>
     <scroll-view scroll-y wx:for="{{datas}}" wx:key="{{index}}" class='{{ menuChosed === index ? "containt chosed" : "containt" }}'>
-      <view class="q-one" wx:for="{{item.qs}}" wx:key="{{index2}}" wx:for-index="index2" wx:for-item="item2">
-        <text class="num">{{index2+1}}.</text> {{item2.q}}:{{item2.a}}
+      <view class="q-one" wx:for="{{item.data}}" wx:key="{{index2}}" wx:for-index="index2" wx:for-item="item2">
+        <view wx:if="{{item2.t}}" class="math-t">{{item2.t}}</view>
+        <view wx:if="{{item2.i}}" class="math-i">
+          <view wx:for="{{item2.i}}" wx:for-index="indexi" wx:for-item="itemt" wx:key="{{indexi}}">{{itemt}}</view>
+        </view>
+        <image wx:if="{{item2.img}}" data-src="{{item2.img}}" mode="widthFix" class="math-img" src="{{item2.img}}" bindtap='onImageTap'></image>
       </view>
     </scroll-view>
   </view>

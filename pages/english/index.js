@@ -8,24 +8,8 @@ Page({
     menuChosed: 0, // 当前选择的哪个菜单
     datas: [  // 当前页所有原始数据
       {
-        title: '语法', qs: [
-          { q: 'aaaa', a: 'bbbb' },
-          { q: 'aaaa', a: 'bbbb' },
-          { q: 'aaaa', a: 'bbbb' },
-        ]
-      },
-      {
-        title: '短语', qs: [
-          { q: 'a1aaa', a: 'bbbb' },
-          { q: 'aa2aa', a: 'bbbb' },
-          { q: 'aa3aa', a: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb23bb' },
-        ]
-      },
-      {
-        title: '单词', qs: [
-          { q: 'a1aaa', a: 'bbbb' },
-          { q: 'aa2aa', a: 'bbbb' },
-          { q: 'aa3aa', a: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb23bb' },
+        title: '英语复习', data: [
+          {q:"啊，英语要怎么学啊？", a:"自己背单词吧"}
         ]
       },
     ]
