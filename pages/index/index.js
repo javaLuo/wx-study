@@ -32,8 +32,8 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习政治`,
-      path: '/page/index/index',
-      imageUrl: app.globalData.userInfo.avatarUrl,
+      path: '/pages/index/index',
+      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
     }
   },
   // 高亮答案改变

@@ -20,8 +20,8 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习英语`,
-      path: '/page/index/index',
-      imageUrl: app.globalData.userInfo.avatarUrl,
+      path: '/pages/english/index',
+      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
     }
   },
   chosemenu: function (e) {

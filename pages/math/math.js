@@ -59,14 +59,15 @@ Page({
       },
     ]
   },
-  onLoad: function () {
+  onLoad: function () {ssssss
+  ssssfff
 
   },
   onShareAppMessage: function (res) {
     return {
       title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习数学，起床，吃饭，学习，睡觉！`,
-      path: '/page/index/index',
-      imageUrl: app.globalData.userInfo.avatarUrl,
+      path: '/pages/math/math',
+      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
     }
   },
   chosemenu: function (e) {
