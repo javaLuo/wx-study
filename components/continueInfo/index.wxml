@@ -1,0 +1,4 @@
+<view class="continue-info {{show ? 'show' : ''}}" bindtap='onClick'>
+  <view class="info">已看到{{num}}%，继续</view>
+  <view class="time">{{time}}s</view>
+</view>

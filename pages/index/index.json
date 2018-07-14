@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "政治"
+  "navigationBarTitleText": "政治",
+  "usingComponents": {
+    "continue": "/components/continueInfo/index"
+  }
 }
