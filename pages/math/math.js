@@ -59,9 +59,7 @@ Page({
       },
     ]
   },
-  onLoad: function () {ssssss
-  ssssfff
-
+  onLoad: function () {
   },
   onShareAppMessage: function (res) {
     return {

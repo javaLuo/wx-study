@@ -17,25 +17,23 @@
   </scroll-view>
   <!-- 右边内容 -->
   <view class="containt-box">
-    <continue num="{{continueNum}}" show="{{continueShow}}" time="{{continueTime}}" bind:onTap="onContinueTap"/>
     <scroll-view
       id="{{item.p}}"
       scroll-y
-      enable-back-to-top
-      scroll-with-animation
-      scroll-top="{{item.tt}}"
+      scroll-top="{{scrollTops[index]}}"
       wx:for="{{datas}}"
       wx:key="{{index}}"
       class='{{ menuChosed === index ? "containt chosed" : "containt" }}'
       bindscroll="onScroll"
     >
       <view
-        class="q-one"
+        class="q-one {{ showa[index][index2] && 'showa' }}"
         wx:for="{{item.dataf}}"
         wx:key="{{index2}}"
         id="q-one-{{index2+1}}"
         wx:for-index="index2"
         wx:for-item="item2"
+        bindtap='onScrollTap'
       >
         <view wx:if="{{item.type === 0}}">
           <rich-text nodes="{{item2}}"></rich-text>

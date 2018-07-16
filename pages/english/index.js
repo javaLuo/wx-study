@@ -1,20 +1,29 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp(); // 全局实例
+const tools = require("../../utils/util.js");
+const server = require('../../utils/server.js'); // ajax
 
 Page({
   data: {
     menuHuaTop: 0, // 菜单的滑块DOM信息
     menuChosed: 0, // 当前选择的哪个菜单
     datas: [  // 当前页所有原始数据
-      {p: "en0", title: '语法', data: [], type: 0}, // { q, a }
-      {p: "en1", title: '单词', data: [], type: 0}, 
-      {p: "en2", title: '放洋屁', data: [], type: 1}, // {t, url}
+      {p: "en0", title: '语法', data: [], type: 0}, // { q, a }换行
+      {p: "en1", title: '高一单词', data: [], type: 1}, // q/a不换行
+      { p: "en2", title: '高二单词', data: [], type: 1 }, // q/a不换行
+      { p: "en3", title: '高三单词', data: [], type: 1 }, // q/a不换行
     ]
   },
   onLoad: function () {
     
   },
+
+onShow: function(){
+  if (!this.data.datas[this.data.menuChosed].data.length) {
+    this.getData(this.data.menuChosed);
+  }
+},
 
   onShareAppMessage: function (res) {
     return {
@@ -25,10 +34,14 @@ Page({
   },
   chosemenu: function (e) {
     if (e.currentTarget.dataset.index !== this.menuChosed) {
+      const d = this.data.datas[e.currentTarget.dataset.index];
       this.setData({
         menuChosed: Number(e.currentTarget.dataset.index),
         menuHuaTop: e.target.offsetTop
       });
+      if (!d.data.length) {
+        this.getData(e.currentTarget.dataset.index); // 没数据就先获取数据
+      } 
     }
   },
   // 获取数据
@@ -46,16 +59,7 @@ Page({
       if (res.data && res.data.status === "0") {
         const temp = [...this.data.datas];
         temp[index].data = res.data.data;
-        if (temp[index].type === 0) {
-          temp[index].dataf = res.data.data.map((item, index) => tools.format0(item, index))
-        } else if (temp[index].type === 1) {
-          let temp_i = 0;
-          temp[index].dataf = res.data.data.map((item) => {
-            if (item.charAt(0) !== 'T') { temp_i++ };
-            return tools.format1(item, temp_i);
-          })
-        }
-        wx.setStorage({ key: `zz-index${index}`, data: res.data.data }); // 将新的原始数据存入缓存
+        wx.setStorage({ key: `en-index${index}`, data: res.data.data }); // 将新的原始数据存入缓存
         if (!haveCache) { // 如果没有缓存，就重新设置，否则就只是把新数据存入缓存，下次打开小程序时就是最新的了
           this.setData({
             datas: temp,
@@ -76,5 +80,22 @@ Page({
         icon: "none"
       })
     });
+  },
+
+  getDataFromCache(index){
+    const data = wx.getStorageSync(`en-index${index}`);
+    if (data) {
+      wx.showLoading({
+        title: '正在构建...',
+      })
+      const temp = [...this.data.datas];
+      temp[index].data = data;
+      this.setData({
+        datas: temp,
+      });
+      wx.hideLoading();
+      return true;
+    }
+    return false;
   }
 })

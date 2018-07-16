@@ -1,6 +1,5 @@
 /**app.wxss**/
 .container {
-
   display: flex;
   height: 100vh;
   box-sizing: border-box;
@@ -83,6 +82,10 @@
   word-wrap:break-word;
   text-align: justify;
 }
+.container .containt-box>.containt .q-one.showa .list1-box .c-list .list.a{
+  color: #22aa22;
+}
+
 .container .containt-box>.containt .q-one .b{
   font-weight: 600;
   color: #222;
@@ -117,7 +120,7 @@
 .list1-box .c-list .list>text{
   flex: none;
 }
-.list1-box .c-list .list.a{
+.list1-box .c-list .list.a.showa{
   color: #22aa22;
 }
 .list1-box .a-box{

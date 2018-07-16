@@ -2,3 +2,23 @@
   background-image: url("https://isluo.com/imgs/wx/back3.jpg");
   background-size: cover;
 }
+.page-en .listen-box .title .tb{
+  font-weight: bold;
+  font-size: 16px;
+}
+.page-en .listen-box .title .qb{
+  font-weight: bold;
+}
+.page-en .listen-box .title .number{
+  color: #888;
+}
+.page-en .listen-box .title .word{
+  color: #222;
+}
+.page-en .listen-box .title .fy{
+  color: #888;
+  font-size: 12px;
+}
+.page-en .listen-box .info{
+  text-align: justify;
+}

@@ -1,0 +1,21 @@
+<!--英语模板 -->
+  <template name="listen">
+    <view class="listen-box">
+    <!-- 单词类的 -->
+      <block wx:if="{{type === 1}}">
+        <view class="title">
+          <text class="number">{{index}}. </text>
+          <text class="word">{{data.q || data.t}} </text>
+          <text class="fy">{{data.a}}</text>
+        </view>
+      </block>
+      <!-- 语法类的 -->
+      <block wx:if="{{type===0}}">
+        <view class="title">
+          <text class="tb" wx:if="{{data.t}}">{{data.t}}</text>
+          <text class="qb" wx:else>{{data.q}}</text>
+        </view>
+        <view class="info">{{data.a}}</view>
+      </block>
+    </view>
+  </template>

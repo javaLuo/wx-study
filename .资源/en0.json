@@ -1,0 +1,6 @@
+[
+  {"t": "名词"},
+  {"q": "名词的规则复数形式", "a":"大多数名词复数加s结尾;以s、x、ch、sh结尾的名词加es;以辅音字母加y结尾的名词，变y为i，再加es;以f或fe结尾的名词，多数变f或fe为v，再加es，一部分直接加s，个别的以上两种都可以;以辅音o结尾的加es，以元音o结尾的加s，个别的以上两种都可以;某些外来词加s即可"},
+  {"q":"名词的不规则复数形式", "a":"(1)改变内部元音：man[men],woman[women],foot[feet],tooth[teeth]； (2)加ren或en：child[children],ox[oxen]； (3)不变：sheep[sheep],deer[deer],Chinese[Chinese]；(4)一些外来词保留其原本的复数形式：basis[bases],thesis[theses],analysis[analyses]"},
+  {"q": "合成名词的复数形式", "a": "(1)如主体词为名词，将主体词改为复数：son-in-law[sons-in-law 女婿]，grand-child[grand-children 孙女 孙子]； (2)没有主体词，则在最后一个词后加复数词尾：go-between[go-betweens 中间人]； (3)以man和woman构成的合成名词，各个成分都要变成复数：man-doctor[men-doctors], woman-teacher[women-teachers];"}
+]

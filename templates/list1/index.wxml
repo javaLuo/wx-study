@@ -4,7 +4,7 @@
     <text class="num" wx:if="{{!data.t}}">{{data.n}}.</text>{{ data.q || data.t || data.xq }} 
     <view class="c-list" wx:if="{{data.c}}">
       <view wx:for="{{data.c}}" wx:key="{{index}}"
-      class="list {{ ((index===0&&data.a==='A')||(index===1 && data.a==='B')||(index===2&&data.a==='C')||(index===3&&data.a==='D')) && aOpen ? 'a' : '' }}"
+      class="list {{ ((index===0&&data.a==='A')||(index===1 && data.a==='B')||(index===2&&data.a==='C')||(index===3&&data.a==='D')) ? 'a' : '' }} {{aOpen && 'showa'}}"
       >
         <text>{{index===0 ? 'A' : (index===1 ? 'B' : (index===2 ? 'C' : 'D'))}}. </text>{{item}}
       </view>

@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<import src="../../templates/listen/index.wxml"/>
+
 <view class="container page-en">
   <scroll-view scroll-y class="menu">
     <view class="menu-hua" style="top:{{menuHuaTop}}px" wx:if="{{datas.length}}"></view>
@@ -6,8 +8,14 @@
   </scroll-view>
   <view class="containt-box">
     <scroll-view scroll-y wx:for="{{datas}}" wx:key="{{index}}" class='{{ menuChosed === index ? "containt chosed" : "containt" }}'>
-      <view class="q-one" wx:for="{{item.data}}" wx:key="{{index2}}" wx:for-index="index2" wx:for-item="item2">
-        <text class="num">{{index2+1}}.</text> {{item2.q}}:{{item2.a}}
+      <view
+        class="q-one"
+        wx:for="{{item.data}}"
+        wx:key="{{index2}}"
+        wx:for-index="index2"
+        wx:for-item="item2"
+      >
+        <template is="listen" data="{{data: item2, type: item.type, index: index2+1}}"></template>
       </view>
     </scroll-view>
   </view>
