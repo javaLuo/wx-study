@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <import src="../../templates/listen/index.wxml"/>
 
-<view class="container page-en">
+<view class="container page-en" bindtouchstart='onPageTouchStart'>
   <scroll-view scroll-y class="menu">
     <view class="menu-hua" style="top:{{menuHuaTop}}px" wx:if="{{datas.length}}"></view>
     <view wx:for="{{datas}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chosemenu' class='{{ menuChosed === index ? "chosed" : null }}'>{{item.title}}</view>

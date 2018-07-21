@@ -110,5 +110,14 @@ Page({
     this.setData({
       app,
     })
+  },
+  // 页面开始触发
+  onPageTouchStart(e) {
+    if (app.globalData.shareImageOpen) {
+      app.globalData.shareImageOpen = false;
+      this.setData({
+        app,
+      })
+    }
   }
 })
