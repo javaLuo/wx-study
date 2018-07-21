@@ -10,6 +10,10 @@
 </scroll-view>
 <view class="share-res-box  {{resShow && 'show'}}" bindtap='closeShareBox'>
    <image class="share-image-img" src="{{shareImageSrc}}" mode="aspectFit"></image>
+   <view class="res-btn-box">
+   <view class="res-btn" bindtap='saveImage'><icon type="download" size="20"></icon></view>
+   <view class="res-btn"><icon type="cancel" size="20"></icon></view>
+   </view>
 </view>
 <view class="share-image-canvas-box">
 <canvas class="share-image-canvas" canvas-id="share-image"></canvas> 

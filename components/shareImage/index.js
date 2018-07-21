@@ -12,6 +12,15 @@ Component({
     open: {
       type: Boolean,
       value:false,
+    },
+    canShow:{ // 是否出现
+      type: Boolean,
+      value: false,
+      observer: function(){
+        this.setData({
+          resShow: false,
+        })
+      }
     }
   },
 
@@ -44,30 +53,24 @@ Component({
         console.log("返回了什么：", res)
         const ctx = wx.createCanvasContext('share-image', this);
 
-        ctx.drawImage(res[0].path, 36, 35, 94, 94/(res[0].width/res[0].height));
-        ctx.drawImage(res[1].path, 0, 0, 300, 600);
+        ctx.drawImage(res[0].path, 42, 43, 82, 82/(res[0].width/res[0].height));
+        ctx.drawImage(res[1].path, 0, 0, 300, 500);
         
         // ctx, str, color, fontSize, x, y, textAlign
-        this.drawText(ctx, this.properties.userinfo.nickName, "#ffffff",25, 140, 65, 'left');
+        this.drawText(ctx, this.properties.userinfo.nickName, "#ffffff",25, 140, 68, 'left');
         this.drawText(ctx, 'hi, there', "#ffffff", 18, 50, 150, 'left');
         this.drawText(ctx, "我正在这里学习准备专升本", "#ffffff", 18, 50, 180, 'left');
         this.drawText(ctx, "你也一起来吧", "#ffffff", 18, 50, 210, 'left');
-        this.drawText(ctx, '"面对你懒惰的人生"', "#ffffff", 18, 150, 310, 'center');
+        this.drawText(ctx, '"你醒啦，作业做了吗"', "#ffffff", 18, 150, 310, 'center');
         ctx.draw();
         this.triggerEvent('openChange', false);
         wx.canvasToTempFilePath({
           x:0,
           y:0,
           width: 300,
-          height: 600,
+          height: 500,
           canvasId: "share-image",
           success: (res)=>{
-            wx.saveImageToPhotosAlbum({
-              filePath: res.tempFilePath,
-              success: ()=>{
-                wx.showToast({title: "图片已保存至相册"});
-              }
-            })
             this.setData({
               resShow: true,
               shareImageSrc: res.tempFilePath,
@@ -86,6 +89,19 @@ Component({
      }
     },
 
+// 把图片保存到相册
+saveImage(){
+  if(this.data.shareImageSrc){
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.shareImageSrc,
+      success: () => {
+        wx.showToast({ title: "已存入相册" });
+      }
+    })
+  } else {
+    wx.showToast({title: "保存失败", icon:"none"});
+  }
+},
     // 网络图片需要先下载到本地
     downLoadImages(urls){
       return Promise.all(urls.map((item)=>{

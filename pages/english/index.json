@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "英语"
+  "navigationBarTitleText": "英语",
+  "usingComponents": {
+    "shareImage": "/components/shareImage/index"
+  }
 }

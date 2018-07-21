@@ -15,4 +15,11 @@
       </view>
     </scroll-view>
   </view>
+  <!-- 分享保存图片 -->
+  <shareImage
+    open="{{app.globalData.shareImageOpen}}"
+    userinfo="{{app.globalData.userInfo}}"
+    canShow="{{canShow}}"
+    bind:openChange="shareImageOpenChange"
+  ></shareImage>
 </view>

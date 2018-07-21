@@ -6,6 +6,8 @@ const server = require('../../utils/server.js'); // ajax
 
 Page({
   data: {
+    app,
+    canShow: false, // 为了分享的图片框，切换时让其自动消失
     menuHuaTop: 0, // 菜单的滑块DOM信息
     menuChosed: 0, // 当前选择的哪个菜单
     datas: [  // 当前页所有原始数据
@@ -23,6 +25,16 @@ onShow: function(){
   if (!this.data.datas[this.data.menuChosed].data.length) {
     this.getData(this.data.menuChosed);
   }
+  this.setData({
+    canShow: true,
+  })
+},
+
+onHide: function(){
+  this.shareImageOpenChange(false);
+  this.setData({
+    canShow: false,
+  })
 },
 
   onShareAppMessage: function (res) {
@@ -97,5 +109,13 @@ onShow: function(){
       return true;
     }
     return false;
-  }
+  },
+
+  // 分享图片按钮出现的状态
+  shareImageOpenChange(e) {
+    app.globalData.shareImageOpen = e.detail;
+    this.setData({
+      app,
+    })
+  },
 })

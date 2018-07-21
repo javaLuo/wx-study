@@ -11,7 +11,26 @@
   transition: 250ms;
   overflow: hidden;
 }
-
+.share-res-box .res-btn-box{
+  width: 100px;
+  margin:0 auto;
+  transform: translateX(50px);
+  display: flex;
+  justify-content: flex-end;
+}
+.share-res-box .res-btn{
+  background-color: #fff;
+  padding: 8px 5px 5px 5px;
+  border-bottom: solid 1px #f0f0f0;
+  border-left: solid 1px #f0f0f0;
+  border-right: solid 1px #f0f0f0;
+  border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+   margin-left: 10px;
+}
+.share-res-box .res-btn:active{
+  background-color: #ccc;
+}
 .share-res-box.show{
   transform: scale(1,1);
   opacity: 1;
@@ -22,7 +41,7 @@
 }
 .share-image-canvas-box .share-image-canvas{
   width: 300px;
-  height: 600px;
+  height: 500px;
   top:0;
   left:0;
   visibility: hidden;
@@ -51,7 +70,7 @@
   border-bottom-left-radius: 20px;
   transition: all 250ms;
   overflow: hidden;
-  width: 16px;
+  width: 14px;
 }
 .share-image-btn .share-image-btn-1{
   display: flex;

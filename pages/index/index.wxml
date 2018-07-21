@@ -47,6 +47,7 @@
   <!-- 分享保存图片 -->
   <shareImage
     open="{{app.globalData.shareImageOpen}}"
+    canShow="{{canShow}}"
     userinfo="{{app.globalData.userInfo}}"
     bind:openChange="shareImageOpenChange"
   ></shareImage>
