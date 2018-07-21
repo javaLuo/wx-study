@@ -1,0 +1,17 @@
+<!--components/shareImage/index.wxml-->
+<scroll-view
+  class="share-image-btn {{open && 'open'}}"
+  catchtouchstart='onCreate'
+>
+  <view class="share-image-btn-1">
+    <image src="/assets/share-icon.gif" style="width:16px;height:16px"></image>
+    <text>制作分享图片</text>
+  </view>
+</scroll-view>
+<view class="share-res-box  {{resShow && 'show'}}" bindtap='closeShareBox'>
+   <image class="share-image-img" src="{{shareImageSrc}}" mode="aspectFit"></image>
+</view>
+<view class="share-image-canvas-box">
+<canvas class="share-image-canvas" canvas-id="share-image"></canvas> 
+</view>
+

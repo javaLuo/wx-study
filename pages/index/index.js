@@ -7,6 +7,7 @@ let scrollTimer = null; // 滚动计时器
 
 Page({
   data: {
+    app,
     menuChosed: 0, // 当前选择的哪个菜单
     menuHuaTop: 0, // 用于菜单蓝色div的offsetTop
     aOpen: false, // 是否高亮答案
@@ -27,6 +28,7 @@ Page({
 
   /** 加载完毕 **/
   onLoad: function(){
+    console.log("用户信息是什么：", app.globalData.userInfo)
   },
 
   /** 加载完毕并且渲染完毕 **/
@@ -193,5 +195,24 @@ Page({
       return true;
     }
     return false;
+  },
+
+  // 分享图片按钮出现的状态
+  shareImageOpenChange(e){
+    app.globalData.shareImageOpen = e.detail;
+    this.setData({
+      app,
+    })
+  },
+
+// 页面开始触发
+  onPageTouchStart(e){
+    console.log("页面touchstart",e);
+    if (app.globalData.shareImageOpen){
+      app.globalData.shareImageOpen = false;
+      this.setData({
+        app,
+      })
+    }
   }
 })

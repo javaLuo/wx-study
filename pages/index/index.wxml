@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <import src="../../templates/list1/index.wxml"/>
 
-<view class="container page-zz">
+<view class="container page-zz" bindtouchstart='onPageTouchStart'>
   <!-- 左边导航 -->
   <scroll-view scroll-y class="menu">
     <view class="menu-hua" style="top:{{menuHuaTop}}px" wx:if="{{datas.length}}"></view>
@@ -44,4 +44,10 @@
   </view>
   <!-- 左下角开关 -->
   <switch class="a-open-switch" checked="{{aOpen}}" bindchange="aOpenSwitchChange"/>
+  <!-- 分享保存图片 -->
+  <shareImage
+    open="{{app.globalData.shareImageOpen}}"
+    userinfo="{{app.globalData.userInfo}}"
+    bind:openChange="shareImageOpenChange"
+  ></shareImage>
 </view>

@@ -1,0 +1,69 @@
+/* components/shareImage/index.wxss */
+.share-res-box{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  transform: scale(0,0);
+  opacity: 0;
+  transition: 250ms;
+  overflow: hidden;
+}
+
+.share-res-box.show{
+  transform: scale(1,1);
+  opacity: 1;
+}
+.share-image-canvas-box{
+  visibility: hidden;
+  transform:scale(0,0);
+}
+.share-image-canvas-box .share-image-canvas{
+  width: 300px;
+  height: 600px;
+  top:0;
+  left:0;
+  visibility: hidden;
+  opacity:0;
+  position: absolute;
+  background-color: #ccc;
+  z-index: -1;
+}
+.share-res-box .share-image-img{
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+  display: block;
+}
+
+.share-image-btn{
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 5px 5px;
+  background-color:#BC79F7;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: all 250ms;
+  overflow: hidden;
+  width: 16px;
+}
+.share-image-btn .share-image-btn-1{
+  display: flex;
+  align-items: center;
+  width:200px;
+}
+.share-image-btn:active{
+  background-color: #AD5DF5;
+}
+.share-image-btn.open{
+  width: 100px;
+}
+.share-image-btn-1>image{
+  margin-right: 5px;
+}

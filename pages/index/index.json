@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "政治",
   "usingComponents": {
-    "continue": "/components/continueInfo/index"
+    "shareImage": "/components/shareImage/index"
   }
 }
