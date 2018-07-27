@@ -8,7 +8,7 @@
 
 
 <div align=center>
-<img src="https://raw.githubusercontent.com/javaLuo/wx-study/master/assets/logo.jpg" />
+<img src="https://raw.githubusercontent.com/javaLuo/wx-study/master/assets/gh_42b21dd44b86_258.jpg" />
 </div>
 
 <br/><br/>
