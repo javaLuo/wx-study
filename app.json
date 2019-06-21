@@ -1,22 +1,23 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/english/index",
-    "pages/math/math"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "pages": ["pages/index/index", "pages/english/index", "pages/math/math"],
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "tabBar":{
+  "tabBar": {
     "color": "#ffffff",
     "selectedColor": "#55aaee",
-    "backgroundColor":"#222222",
-    "borderStyle":"#cccccc",
-    "list":[
-      { "pagePath": "pages/index/index", "text": "政治","iconPath": "/assets/menu-icon1.png", "selectedIconPath": "/assets/menu-icon1-check.png" },
+    "backgroundColor": "#222222",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "政治",
+        "iconPath": "/assets/menu-icon1.png",
+        "selectedIconPath": "/assets/menu-icon1-check.png"
+      },
       {
         "pagePath": "pages/english/index",
         "text": "英语",
@@ -30,5 +31,6 @@
         "selectedIconPath": "/assets/menu-icon3-check.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
