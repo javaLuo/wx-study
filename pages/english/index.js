@@ -11,10 +11,10 @@ Page({
     menuHuaTop: 0, // 菜单的滑块DOM信息
     menuChosed: 0, // 当前选择的哪个菜单
     datas: [  // 当前页所有原始数据
-      {p: "en0", title: '语法', data: [], type: 0}, // { q, a }换行
-      {p: "en1", title: '高一单词', data: [], type: 1}, // q/a不换行
-      { p: "en2", title: '高二单词', data: [], type: 1 }, // q/a不换行
-      { p: "en3", title: '高三单词', data: [], type: 1 }, // q/a不换行
+      {p: "en0.json", title: '语法', data: [], type: 0}, // { q, a }换行
+      {p: "en1.json", title: '高一单词', data: [], type: 1}, // q/a不换行
+      { p: "en2.json", title: '高二单词', data: [], type: 1 }, // q/a不换行
+      { p: "en3.json", title: '高三单词', data: [], type: 1 }, // q/a不换行
     ]
   },
   onLoad: function () {
@@ -67,11 +67,12 @@ onHide: function(){
     }
 
     // 请求新的数据，即便有cache也会请求
-    server.request("main/todo.do", { m: 'getStudy', p: this.data.datas[index].p }).then((res) => {
-      if (res.data && res.data.status === "0") {
+    server.request('imgs/wx/' + this.data.datas[index].p).then((res) => {
+      console.log('fff:', res)
+      if (res.data && res.statusCode === 200) {
         const temp = [...this.data.datas];
-        temp[index].data = res.data.data;
-        wx.setStorage({ key: `en-index${index}`, data: res.data.data }); // 将新的原始数据存入缓存
+        temp[index].data = res.data;
+        wx.setStorage({ key: `en-index${index}`, data: res.data }); // 将新的原始数据存入缓存
         if (!haveCache) { // 如果没有缓存，就重新设置，否则就只是把新数据存入缓存，下次打开小程序时就是最新的了
           this.setData({
             datas: temp,

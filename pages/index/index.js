@@ -15,15 +15,15 @@ Page({
     datas: [
       // 当前页所有原始数据
       // title:标题，data:原始数据,type:0知识点/1选择题，dataf:构建后的对象，p:相当于id， t:当前滚动的高度,tt:同步高度时设置, c:是否显示提示
-      { title: '知识点', data: [], type: 0, dataf: [], p: 'zz1' }, // type=0;知识点，1选择题
-      { title: '毛中特一', data: [], type: 1, dataf: [], p: 'zz2' }, // type=0;知识点，1选择题
-      { title: '毛中特二', data: [], type: 1, dataf: [], p: 'zz3' }, // type=0;知识点，1选择题
-      { title: '哲学练习', data: [], type: 1, dataf: [], p: 'zz4' }, // type=0;知识点，1选择题
-      { title: '哲学单选', data: [], type: 1, dataf: [], p: 'zz5' }, // type=0;知识点，1选择题
-      { title: '模拟卷一', data: [], type: 1, dataf: [], p: 'zz6' }, // type=0;知识点，1选择题
-      { title: '模拟卷二', data: [], type: 1, dataf: [], p: 'zz7' }, // type=0;知识点，1选择题
-      { title: '模拟卷三', data: [], type: 1, dataf: [], p: 'zz8' }, // type=0;知识点，1选择题
-      { title: '2018试题', data: [], type: 1, dataf: [], p: 'zz9' }, // type=0;知识点，1选择题
+      { title: '知识点', data: [], type: 0, dataf: [], p: '成人高考专升本政治知识点.json' }, // type=0;知识点，1选择题
+      { title: '毛中特一', data: [], type: 1, dataf: [], p: '毛中特练习题.json' }, // type=0;知识点，1选择题
+      { title: '毛中特二', data: [], type: 1, dataf: [], p: '毛泽东思想和中国特色练习题.json' }, // type=0;知识点，1选择题
+      { title: '哲学练习', data: [], type: 1, dataf: [], p: '哲学练习.json' }, // type=0;知识点，1选择题
+      { title: '哲学单选', data: [], type: 1, dataf: [], p: '哲学单选.json' }, // type=0;知识点，1选择题
+      { title: '模拟卷一', data: [], type: 1, dataf: [], p: '模拟1.json' }, // type=0;知识点，1选择题
+      { title: '模拟卷二', data: [], type: 1, dataf: [], p: '模拟2.json' }, // type=0;知识点，1选择题
+      { title: '模拟卷三', data: [], type: 1, dataf: [], p: '模拟3.json' }, // type=0;知识点，1选择题
+      { title: '2018试题', data: [], type: 1, dataf: [], p: '2018试题.json' }, // type=0;知识点，1选择题
     ],
     scrollTops: [0, 0, 0, 0, 0, 0, 0, 0, 0], // 每一项的scrollTop,这么做是因为放在datas中，更新datas时会重复触发scroll-view的设置top事件，所以单独拿出来
     showa: [[], [], [], [], [], [], [], [], []],
@@ -145,24 +145,24 @@ Page({
 
     // 请求新的数据，即便有cache也会请求
     server
-      .request('main/todo.do', { m: 'getStudy', p: this.data.datas[index].p })
+      .request('imgs/wx/'+ this.data.datas[index].p)
       .then(res => {
-        if (res.data && res.data.status === '0') {
+        if (res.data && res.statusCode === 200) {
           const temp = [...this.data.datas];
-          temp[index].data = res.data.data;
+          temp[index].data = res.data;
           if (temp[index].type === 0) {
-            temp[index].dataf = res.data.data.map((item, index) => tools.format0(item, index));
+            temp[index].dataf = res.data.map((item, index) => tools.format0(item, index));
           } else if (temp[index].type === 1) {
             let temp_i = 0;
-            temp[index].dataf = res.data.data.map(item => {
+            temp[index].dataf = res.data.map(item => {
               if (item.charAt(0) !== 'T') {
                 temp_i++;
               }
-              console.log('是什么：', item, temp_i);
+              // console.log('是什么：', item, temp_i);
               return tools.format1(item, temp_i);
             });
           }
-          wx.setStorage({ key: `zz-index${index}`, data: res.data.data }); // 将新的原始数据存入缓存
+          wx.setStorage({ key: `zz-index${index}`, data: res.data }); // 将新的原始数据存入缓存
           if (!haveCache) {
             // 如果没有缓存，就重新设置，否则就只是把新数据存入缓存，下次打开小程序时就是最新的了
             this.setData({
