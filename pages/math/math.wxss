@@ -12,7 +12,7 @@
   font-size: 12px;
 }
 .page-math .q-one .math-img{
-  width: 100%;
+  max-width: 100%;
   height: auto;
   margin-top: 3px;
 }

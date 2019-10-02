@@ -1,7 +1,7 @@
 /** 政治页 **/
 const app = getApp(); // 全局实例
-const tools = require('../../utils/util.js');
-const server = require('../../utils/server.js'); // ajax
+const tools = require("../../utils/util.js");
+const server = require("../../utils/server.js"); // ajax
 
 let scrollTimer = null; // 滚动计时器
 
@@ -15,15 +15,15 @@ Page({
     datas: [
       // 当前页所有原始数据
       // title:标题，data:原始数据,type:0知识点/1选择题，dataf:构建后的对象，p:相当于id， t:当前滚动的高度,tt:同步高度时设置, c:是否显示提示
-      { title: '知识点', data: [], type: 0, dataf: [], p: '成人高考专升本政治知识点.json' }, // type=0;知识点，1选择题
-      { title: '毛中特一', data: [], type: 1, dataf: [], p: '毛中特练习题.json' }, // type=0;知识点，1选择题
-      { title: '毛中特二', data: [], type: 1, dataf: [], p: '毛泽东思想和中国特色练习题.json' }, // type=0;知识点，1选择题
-      { title: '哲学练习', data: [], type: 1, dataf: [], p: '哲学练习.json' }, // type=0;知识点，1选择题
-      { title: '哲学单选', data: [], type: 1, dataf: [], p: '哲学单选.json' }, // type=0;知识点，1选择题
-      { title: '模拟卷一', data: [], type: 1, dataf: [], p: '模拟1.json' }, // type=0;知识点，1选择题
-      { title: '模拟卷二', data: [], type: 1, dataf: [], p: '模拟2.json' }, // type=0;知识点，1选择题
-      { title: '模拟卷三', data: [], type: 1, dataf: [], p: '模拟3.json' }, // type=0;知识点，1选择题
-      { title: '2018试题', data: [], type: 1, dataf: [], p: '2018试题.json' }, // type=0;知识点，1选择题
+      { title: "知识点", data: [], type: 0, dataf: [], p: "成人高考专升本政治知识点.json" }, // type=0;知识点，1选择题
+      { title: "毛中特一", data: [], type: 1, dataf: [], p: "毛中特练习题.json" }, // type=0;知识点，1选择题
+      { title: "毛中特二", data: [], type: 1, dataf: [], p: "毛泽东思想和中国特色练习题.json" }, // type=0;知识点，1选择题
+      { title: "哲学练习", data: [], type: 1, dataf: [], p: "哲学练习.json" }, // type=0;知识点，1选择题
+      { title: "哲学单选", data: [], type: 1, dataf: [], p: "哲学单选.json" }, // type=0;知识点，1选择题
+      { title: "模拟卷一", data: [], type: 1, dataf: [], p: "模拟1.json" }, // type=0;知识点，1选择题
+      { title: "模拟卷二", data: [], type: 1, dataf: [], p: "模拟2.json" }, // type=0;知识点，1选择题
+      { title: "模拟卷三", data: [], type: 1, dataf: [], p: "模拟3.json" }, // type=0;知识点，1选择题
+      { title: "2018试题", data: [], type: 1, dataf: [], p: "2018试题.json" }, // type=0;知识点，1选择题
     ],
     scrollTops: [0, 0, 0, 0, 0, 0, 0, 0, 0], // 每一项的scrollTop,这么做是因为放在datas中，更新datas时会重复触发scroll-view的设置top事件，所以单独拿出来
     showa: [[], [], [], [], [], [], [], [], []],
@@ -35,7 +35,7 @@ Page({
   /** 加载完毕并且渲染完毕 **/
   onReady: function() {
     this.setData({
-      aOpen: !!wx.getStorageSync('aOpen'),
+      aOpen: !!wx.getStorageSync("aOpen"),
     });
   },
 
@@ -61,9 +61,9 @@ Page({
   /** 页面分享时 **/
   onShareAppMessage: function(res) {
     return {
-      title: `${app.globalData.userInfo.nickName || '专升本'}邀您来复习政治`,
-      path: '/pages/index/index',
-      imageUrl: 'https://isluo.com/imgs/wx/wx-study-share.jpg',
+      title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习政治`,
+      path: "/pages/index/index",
+      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
     };
   },
 
@@ -81,7 +81,7 @@ Page({
       aOpen: e.detail.value,
       showa: [[], [], [], [], [], [], [], []],
     });
-    wx.setStorageSync('aOpen', e.detail.value);
+    wx.setStorageSync("aOpen", e.detail.value);
   },
 
   // 左侧菜单选择时触发
@@ -110,7 +110,6 @@ Page({
 
     if (top) {
       this.data.scrollTops[index] = top;
-      console.log('触发呀：', index, this.data.scrollTops[index], top);
       this.setData({
         scrollTops: this.data.scrollTops,
       });
@@ -119,13 +118,12 @@ Page({
 
   // 点击某一个题目时
   onScrollTap(e) {
-    console.log('点击触发：', e);
     if (this.data.aOpen) {
       // 已经是答案全部高亮状态，直接返回
       return;
     }
-    console.log('DATA的样子', this.data.datas[this.data.menuChosed].showa);
-    this.data.showa[this.data.menuChosed][Number(e.currentTarget.id.split('-').pop()) - 1] = true;
+    console.log("DATA的样子", this.data.datas[this.data.menuChosed].showa);
+    this.data.showa[this.data.menuChosed][Number(e.currentTarget.id.split("-").pop()) - 1] = true;
     this.setData({
       showa: this.data.showa,
     });
@@ -139,13 +137,13 @@ Page({
       // 说明没有cache
       wx.showLoading({
         // 没有cache就显示加载中，准备请求接口。
-        title: '加载中...',
+        title: "加载中...",
       });
     }
 
     // 请求新的数据，即便有cache也会请求
     server
-      .request('imgs/wx/'+ this.data.datas[index].p)
+      .request("imgs/wx/" + this.data.datas[index].p)
       .then(res => {
         if (res.data && res.statusCode === 200) {
           const temp = [...this.data.datas];
@@ -155,7 +153,7 @@ Page({
           } else if (temp[index].type === 1) {
             let temp_i = 0;
             temp[index].dataf = res.data.map(item => {
-              if (item.charAt(0) !== 'T') {
+              if (item.charAt(0) !== "T") {
                 temp_i++;
               }
               // console.log('是什么：', item, temp_i);
@@ -174,16 +172,16 @@ Page({
         } else {
           if (!haveCache) {
             wx.showToast({
-              title: '获取数据失败，请重试',
-              icon: 'none',
+              title: "获取数据失败，请重试",
+              icon: "none",
             });
           }
         }
       })
       .catch(e => {
         wx.showToast({
-          title: '网络错误，将尝试从缓存获取数据',
-          icon: 'none',
+          title: "网络错误，将尝试从缓存获取数据",
+          icon: "none",
         });
       });
   },
@@ -193,7 +191,7 @@ Page({
     const data = wx.getStorageSync(`zz-index${index}`);
     if (data) {
       wx.showLoading({
-        title: '正在构建...',
+        title: "正在构建...",
       });
       const temp = [...this.data.datas];
       temp[index].data = data;
@@ -202,7 +200,7 @@ Page({
       } else if (temp[index].type === 1) {
         let temp_i = 0;
         temp[index].dataf = data.map(item => {
-          if (item.charAt(0) !== 'T') {
+          if (item.charAt(0) !== "T") {
             temp_i++;
           }
           return tools.format1(item, temp_i);

@@ -59,6 +59,48 @@ Page({
           { t: "七、广义积分", i: ["即上限或下限中有无穷，可以把无穷看成一个常数，求出来后再求其极限"], img: "https://isluo.com/imgs/wx/math/fx7.jpg" }
         ]
       },
+      {
+        title: '大题必考',
+        data: [
+          {t: '一、一阶偏导数/全微分', i: [
+            "形如z=f(x,y)",
+            "求δz/δx，就是求x的偏导数，把y看作常数，对x求导",
+            "求δz/δy，就是求y的偏导数，把x看作常数，对y求导",
+            "求dz，就是求全微分, 公式：",
+          ],img: "https://isluo.com/imgs/wx/math/bk01.jpg"},
+          {t:'二、二阶偏导/混合偏导',i:[
+            "δ²z/δx²，就是求x的二阶偏导，把y看作常数对x求导，然后再一次把y看作常数对x求导",
+            "δ²z/δy²，就是求y的二阶偏导，把x看作常数对y求导，然后再一次把x看作常数对y求导",
+            "δ²z/δxδy，就是求混合偏导，先把y看作常数对x求导，然后把x看作常数对y求导",
+            "δ²z/δyδx，就是换了一下位置，先把x看作常数对y求导,然后把y看作常数对x求导"
+          ], img:"https://isluo.com/imgs/wx/math/bk02.jpg"},
+         {
+           t:'三、隐函数求偏导/全微分', i:[
+             '化成F(x,y,z)=0形式再求，公式：'
+           ],
+           img: 'https://isluo.com/imgs/wx/math/bk03.jpg'
+         },
+          {
+            img: 'https://isluo.com/imgs/wx/math/bk04.jpg'
+          },
+          {
+            t: '四(一)、隐函数求极值(无条件)', i: [
+              '1.求一阶各偏导，得驻点',
+              '2.求二阶各偏导，驻点带入ABC',
+              '3.判别：B²-AC<0则有极值，>=0无极值; A>0有极小值，<0有极大值',
+            ],
+            img: 'https://isluo.com/imgs/wx/math/bk05.jpg'
+          },
+          {
+            t: '四(二)、隐函数求极值(有条件)', i: [
+              '1.构造F函数',
+              '2.求驻点(如果有多个驻点就是有多个极值)',
+              '3.解得极值',
+            ],
+            img: 'https://isluo.com/imgs/wx/math/bk06.jpg'
+          }
+        ]
+      }
     ]
   },
   onLoad: function () {
