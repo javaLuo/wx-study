@@ -60,7 +60,7 @@ Page({
         ]
       },
       {
-        title: '大题必考',
+        title: '偏导数',
         data: [
           {t: '一、一阶偏导数/全微分', i: [
             "形如z=f(x,y)",
@@ -100,6 +100,42 @@ Page({
             img: 'https://isluo.com/imgs/wx/math/bk06.jpg'
           }
         ]
+      },
+      {
+        title:'微分方程',
+        data:[
+          {
+            t:'一、一阶微分方程(变量可分离)',i:[
+            "利用y'=dy/dx来变形",
+            'y放左，x放右'
+          ], img:"https://isluo.com/imgs/wx/math/wffc01.jpg"
+          },
+          {
+            t:'二、一阶微分方程(变量不可分离)',
+            i:[
+              "形如：y'+p(x)y=q(x)",
+            ],
+            img:"https://isluo.com/imgs/wx/math/wffc02.jpg"
+          },
+          {
+            t:'三、二阶微分方程',
+            i:[
+              "形如：y\"+py'+qy=f(x)",
+              "如果f(x)是0,那直接求出特征方程，解出特征根就行了",
+              "如果不是0，则还要设y*,求A"
+            ],
+            img: "https://isluo.com/imgs/wx/math/wffc03.jpg"
+          }
+        ]
+      },
+      {
+        title:'二重积分',
+        data:[
+          {
+            t:'一、线性平面坐标系求解',
+            img: "https://isluo.com/imgs/wx/math/jjf01.jpg"
+          }
+        ]
       }
     ]
   },
@@ -136,7 +172,6 @@ Page({
     }
   },
   onImageTap: function(e){
-    console.log(e);
     wx.previewImage({
       current: e.target.dataset.src,
       urls: this.data.datas[this.data.menuChosed].data.reduce((res, item)=>{

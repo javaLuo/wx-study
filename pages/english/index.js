@@ -68,7 +68,6 @@ onHide: function(){
 
     // 请求新的数据，即便有cache也会请求
     server.request('imgs/wx/' + this.data.datas[index].p).then((res) => {
-      console.log('fff:', res)
       if (res.data && res.statusCode === 200) {
         const temp = [...this.data.datas];
         temp[index].data = res.data;
