@@ -26,7 +26,7 @@
       },
       {
         "pagePath": "pages/math/math",
-        "text": "数学",
+        "text": "高数一",
         "iconPath": "/assets/menu-icon3.png",
         "selectedIconPath": "/assets/menu-icon3-check.png"
       }

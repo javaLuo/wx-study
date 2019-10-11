@@ -8,7 +8,6 @@ let scrollTimer = null; // 滚动计时器
 Page({
   data: {
     app,
-    canShow: false,
     menuChosed: 0, // 当前选择的哪个菜单
     menuHuaTop: 0, // 用于菜单蓝色div的offsetTop
     aOpen: false, // 是否高亮答案
@@ -29,9 +28,6 @@ Page({
     showa: [[], [], [], [], [], [], [], [], []],
   },
 
-  /** 加载完毕 **/
-  onLoad: function() {},
-
   /** 加载完毕并且渲染完毕 **/
   onReady: function() {
     this.setData({
@@ -44,27 +40,11 @@ Page({
     if (!this.data.datas[this.data.menuChosed].data.length) {
       this.getData(this.data.menuChosed);
     }
-    this.setData({
-      canShow: true,
-    });
   },
 
   /** 页面每次隐藏 **/
   onHide: function() {
     clearTimeout(scrollTimer);
-    this.shareImageOpenChange(false);
-    this.setData({
-      canShow: false,
-    });
-  },
-
-  /** 页面分享时 **/
-  onShareAppMessage: function(res) {
-    return {
-      title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习政治`,
-      path: "/pages/index/index",
-      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
-    };
   },
 
   // 滚动时触发，记录当前这个分类滚动到多高了
@@ -122,7 +102,6 @@ Page({
       // 已经是答案全部高亮状态，直接返回
       return;
     }
-    console.log("DATA的样子", this.data.datas[this.data.menuChosed].showa);
     this.data.showa[this.data.menuChosed][Number(e.currentTarget.id.split("-").pop()) - 1] = true;
     this.setData({
       showa: this.data.showa,
@@ -213,23 +192,5 @@ Page({
       return true;
     }
     return false;
-  },
-
-  // 分享图片按钮出现的状态
-  shareImageOpenChange(e) {
-    app.globalData.shareImageOpen = e.detail;
-    this.setData({
-      app,
-    });
-  },
-
-  // 页面开始触发
-  onPageTouchStart(e) {
-    if (app.globalData.shareImageOpen) {
-      app.globalData.shareImageOpen = false;
-      this.setData({
-        app,
-      });
-    }
   },
 });

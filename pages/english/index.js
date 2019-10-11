@@ -7,7 +7,6 @@ const server = require('../../utils/server.js'); // ajax
 Page({
   data: {
     app,
-    canShow: false, // 为了分享的图片框，切换时让其自动消失
     menuHuaTop: 0, // 菜单的滑块DOM信息
     menuChosed: 0, // 当前选择的哪个菜单
     datas: [  // 当前页所有原始数据
@@ -17,33 +16,14 @@ Page({
       { p: "en3.json", title: '高三单词', data: [], type: 1 }, // q/a不换行
     ]
   },
-  onLoad: function () {
-    
-  },
+
 
 onShow: function(){
   if (!this.data.datas[this.data.menuChosed].data.length) {
     this.getData(this.data.menuChosed);
   }
-  this.setData({
-    canShow: true,
-  })
 },
 
-onHide: function(){
-  this.shareImageOpenChange(false);
-  this.setData({
-    canShow: false,
-  })
-},
-
-  onShareAppMessage: function (res) {
-    return {
-      title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习英语`,
-      path: '/pages/english/index',
-      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
-    }
-  },
   chosemenu: function (e) {
     if (e.currentTarget.dataset.index !== this.menuChosed) {
       const d = this.data.datas[e.currentTarget.dataset.index];
@@ -110,22 +90,4 @@ onHide: function(){
     }
     return false;
   },
-
-  // 分享图片按钮出现的状态
-  shareImageOpenChange(e) {
-    app.globalData.shareImageOpen = e.detail;
-    this.setData({
-      app,
-    })
-  },
-
-  // 页面开始触发
-  onPageTouchStart(e) {
-    if (app.globalData.shareImageOpen) {
-      app.globalData.shareImageOpen = false;
-      this.setData({
-        app,
-      })
-    }
-  }
 })

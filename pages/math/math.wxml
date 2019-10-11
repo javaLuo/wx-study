@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container page-math" bindtouchstart='onPageTouchStart'>
+<view class="container page-math">
   <scroll-view scroll-y class="menu">
     <view class="menu-hua" style="top:{{menuHuaTop}}px" wx:if="{{datas.length}}"></view>
     <view wx:for="{{datas}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chosemenu' class='{{ menuChosed === index ? "chosed" : null }}'>{{item.title}}</view>
@@ -15,11 +15,4 @@
       </view>
     </scroll-view>
   </view>
-  <!-- 分享保存图片 -->
-  <shareImage
-    open="{{app.globalData.shareImageOpen}}"
-    userinfo="{{app.globalData.userInfo}}"
-    canShow="{{canShow}}"
-    bind:openChange="shareImageOpenChange"
-  ></shareImage>
 </view>

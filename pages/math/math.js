@@ -152,29 +152,7 @@ Page({
       }
     ]
   },
-  onLoad: function () {
-  },
 
-  onShow: function(){
-    this.setData({
-      canShow: true,
-    })
-  },
-
-  onHide: function () {
-    this.shareImageOpenChange(false);
-    this.setData({
-      canShow: false,
-    })
-  },
-
-  onShareAppMessage: function (res) {
-    return {
-      title: `${app.globalData.userInfo.nickName || "专升本"}邀您来复习数学，起床，吃饭，学习，睡觉！`,
-      path: '/pages/math/math',
-      imageUrl: "https://isluo.com/imgs/wx/wx-study-share.jpg",
-    }
-  },
   chosemenu: function (e) {
     console.log(e);
     if (e.currentTarget.dataset.index !== this.menuChosed) {
@@ -193,21 +171,4 @@ Page({
       },[])
     });
   },
-
-  // 分享图片按钮出现的状态
-  shareImageOpenChange(e) {
-    app.globalData.shareImageOpen = e.detail;
-    this.setData({
-      app,
-    })
-  },
-  // 页面开始触发
-  onPageTouchStart(e) {
-    if (app.globalData.shareImageOpen) {
-      app.globalData.shareImageOpen = false;
-      this.setData({
-        app,
-      })
-    }
-  }
 })
