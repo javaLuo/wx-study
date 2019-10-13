@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText":"数学",
-  "usingComponents": {
-    "shareImage": "/components/shareImage/index"
-  }
+  "navigationBarTitleText":"数学"
 }

@@ -149,6 +149,59 @@ Page({
             img: "https://isluo.com/imgs/wx/math/jjf02.jpg"
           }
         ]
+      },
+      {
+        title: '级数',
+        data: [
+          {
+            t: '一、幂级数',
+            i: [
+              "ρ≠0，R=1/ρ,收敛区间(-R,R)",
+              "ρ=0，R=+∞,收敛区间(-∞,+∞)",
+              "ρ=+∞，R=0,幂级数仅在x=0处收敛"
+            ],
+            img: "https://isluo.com/imgs/wx/math/mjs01.png"
+          },
+          {
+            t: '二、函数展开为幂级数',
+            i: [
+              "遇到求展开的题，就是把函数转成幂级数的形式",
+              "遇到求幂级数结果的题，就是把幂级数转成函数再求解",
+              "两个常用公式："
+            ],
+            img: "https://isluo.com/imgs/wx/math/mjs02.png"
+          },
+          {
+            t: '三、正项级数',
+            i: [
+              "判断级数的收敛性发散性",
+              "1.先判断是否为正项级数，即幂级数的任意项均>0则为正项级数",
+              "2.再判断ρ，若ρ<1则收敛，否则发散"
+            ],
+            img: "https://isluo.com/imgs/wx/math/mjs03.png"
+          }
+        ]
+      },
+      {
+        title:'空间几何',
+        data:[
+          {
+            t:'一、平面',
+            i:[
+              '已知点(x0,y0,z0)和法向量n={A,B,C}',
+              '平面方程公式：A(x-x0)+B(y-y0)+C(z-z0)=0'
+            ],
+            img: "https://isluo.com/imgs/wx/math/kjjh01.png"
+          },
+          {
+            t: '二、直线',
+            i: [
+              '已知点(x0,y0,z0)和方向向量s={A,B,C}',
+              '直线方程公式：(x-x0)/A=(y-y0)/B=(z-z0)/C'
+            ],
+            img: "https://isluo.com/imgs/wx/math/kjjh02.png"
+          },
+        ]
       }
     ]
   },

@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "政治",
-  "usingComponents": {
-    "shareImage": "/components/shareImage/index"
-  }
+  "navigationBarTitleText": "政治"
 }
