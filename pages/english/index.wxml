@@ -8,6 +8,7 @@
   </scroll-view>
   <view class="containt-box">
     <scroll-view scroll-y wx:for="{{datas}}" wx:key="{{index}}" class='{{ menuChosed === index ? "containt chosed" : "containt" }}'>
+      <ad unit-id="adunit-d81463fe06ab32d1"></ad>
       <view
         class="q-one"
         wx:for="{{item.data}}"
