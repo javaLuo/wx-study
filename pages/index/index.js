@@ -23,6 +23,7 @@ Page({
       { title: "模拟卷二", data: [], type: 1, dataf: [], p: "模拟2.json" }, // type=0;知识点，1选择题
       { title: "模拟卷三", data: [], type: 1, dataf: [], p: "模拟3.json" }, // type=0;知识点，1选择题
       { title: "2018试题", data: [], type: 1, dataf: [], p: "2018试题.json" }, // type=0;知识点，1选择题
+      { title: "当你看到", data: [], type: 0, dataf: [], p: "当你看到.json" }, // type=0;知识点，1选择题
     ],
     scrollTops: [0, 0, 0, 0, 0, 0, 0, 0, 0], // 每一项的scrollTop,这么做是因为放在datas中，更新datas时会重复触发scroll-view的设置top事件，所以单独拿出来
     showa: [[], [], [], [], [], [], [], [], []],

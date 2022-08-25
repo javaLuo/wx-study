@@ -27,7 +27,7 @@
       bindscroll="onScroll"
     >
       
-      <ad unit-id="adunit-07222bac3bdcb761" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+      <!-- <ad unit-id="adunit-07222bac3bdcb761" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
       <view
         class="q-one {{ showa[index][index2] && 'showa' }}"
         wx:for="{{item.dataf}}"
