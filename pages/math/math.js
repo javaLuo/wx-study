@@ -205,7 +205,18 @@ Page({
       }
     ]
   },
-
+  onShareAppMessage(){
+    return {
+      title: '专升本复习',
+      path: '/pages/math',
+    }
+  },
+  
+  onShareTimeline(){
+    return {
+      title: '专升本复习',
+    }
+  },
   chosemenu: function (e) {
     console.log(e);
     if (e.currentTarget.dataset.index !== this.menuChosed) {

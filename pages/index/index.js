@@ -56,6 +56,19 @@ Page({
     }, 50);
   },
 
+  onShareAppMessage(){
+    return {
+      title: '专升本复习',
+      path: '/pages/index',
+    }
+  },
+
+  onShareTimeline(){
+    return {
+      title: '专升本复习',
+    }
+  },
+
   // 高亮答案改变
   aOpenSwitchChange(e) {
     this.setData({

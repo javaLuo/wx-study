@@ -24,6 +24,19 @@ onShow: function(){
   }
 },
 
+onShareAppMessage(){
+  return {
+    title: '专升本复习',
+    path: '/pages/english',
+  }
+},
+
+onShareTimeline(){
+  return {
+    title: '专升本复习',
+  }
+},
+
   chosemenu: function (e) {
     if (e.currentTarget.dataset.index !== this.menuChosed) {
       const d = this.data.datas[e.currentTarget.dataset.index];
