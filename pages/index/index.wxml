@@ -45,5 +45,8 @@
     </scroll-view>
   </view>
   <!-- 左下角开关 -->
-  <switch class="a-open-switch" checked="{{aOpen}}" bindchange="aOpenSwitchChange"/>
+  <view class="a-open-switch">
+    <switch checked="{{aOpen}}" bindchange="aOpenSwitchChange"/>
+    {{aOpen ? '查看答案' : '背题模式'}}
+  </view>
 </view>
